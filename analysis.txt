@@ -1,0 +1,16 @@
+Reading the input set
+reading the input set takes N time where N is number of characters because to properly capture all the characters you loop through all of them the time complexity is O(N)
+Storing the characters / words / numbers in your chosen containers, and setting
+their tracking values
+For storing the input set into the character vector there is a finite amount of characters and I use ascii character codes for the indexes so to search the values to add is very simple and the vector starts initialized with all the possible characters set to 0 the big O complexity is O(1)
+For reading the input set of words and numbers the possibilities are infinite and something resembling a hash table is used
+using the std::hash function allows for keys to be used to search for values already in the table and the time complexity is O(1)
+Looking up the final tracking info on your character / word / number frequencies
+Looking up the final tracking number for a specific char/word/num works just like a hash table and takes O(1)
+to find the top 10 I use std::sort with my own greater function to make it descending and std::sort uses a merge sort function and takes O(NLog N)
+Deciding on (and accessing for output) your "Top Ten" most frequent list for each
+case
+I use a special struct that has data tracking number and order of appearance for words/nums this decides ties and it is used in the std::sort algorithm which orders the top 10 this uses merge sort and has a time complexity of O(N Log N) 
+Any other important algorithm/tasks you perform to complete the job
+Rehash is called when there are more values than possible keys and it loops through the vector of indexes with real values that is updated when a new value is added to the hash table
+the size is doubled and then sized down to the next prime. This is called infrequently but the time complexity is O(N) where N is the number of populated elements of the hash table 
